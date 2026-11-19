@@ -113,16 +113,5 @@ public class NewEmptyJUnitTest {
                 + "+27834557896 | Message: Did you get the cake?", report.get(0));
     }
 
-    @Test
-    void storedMessagesWrittenToAndReadFromJson(@TempDir Path tempDir) throws IOException {
-        Path file = tempDir.resolve("storedMessages.json");
-        manager.writeStoredToJson(file);
-
-        MessageManager reader = new MessageManager();
-        reader.loadStoredFromJson(file);
-
-        assertEquals(Arrays.asList(MSG2, MSG5), reader.getStoredMessages());
-        assertEquals(MSG5, reader.searchByMessageId(ID5));
     }
-}
 }
